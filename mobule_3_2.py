@@ -18,3 +18,5 @@ def send_email(messange, recipient, sender = 'university.help@gmail.com'):
 send_email('message','university.help@gmail.com','@.com')
 send_email('message','university.help@gmail.com')
 send_email('message','universi@.com')
+send_email('message','universi@.co')
+send_email('message','universi.com')
