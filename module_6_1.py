@@ -1,22 +1,26 @@
 
 class Animal:
-    alive = True #(живой)
-    fed = False  #(накормленный)
+    alive = True
+    fed = False
     def __init__(self, name):
-        self.name = name  #уальное название каждого животного
-    def eat(self, food):  #food - это параметр, принимающий объекты классов растений
+        self.name = name
+
+    def eat(self, food):
+        if isinstance(food, Plant):
             if food.edible:
                 print(f"{self.name} съел {food.name}")
                 self.fed = True
             else:
                 print(f"{self.name} не стал есть {food.name}")
                 self.alive = False
+        else:
+            print(f"{self.name} не может есть {food}")
 
 
 class Plant:
-    edible = False  #съедобность
+    edible = False
     def __init__(self, name):
-        self.name = name  #индивидуальное название каждого растения
+        self.name = name
 
 
 class Mammal(Animal):
@@ -29,7 +33,9 @@ class Flower(Plant):
     pass
 
 class Fruit(Plant):
-   edible = True
+    def __init__(self, name):
+        super().__init__(name)
+        self.edible = True
 
 
 a1 = Predator('Волк с Уолл-Стрит')
